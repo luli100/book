@@ -1,5 +1,9 @@
 - [A Little Java, A Few Patterns](#a-little-java-a-few-patterns)
   - [FOREWORD](#foreword)
+  - [Preface](#preface)
+    - [THE INTENDED AUDIENCE](#the-intended-audience)
+    - [WHAT THIS BOOK IS NOT ABOUT](#what-this-book-is-not-about)
+  - [EXPERIMENTING WITH JAVA](#experimenting-with-java)
 
 
 # A Little Java, A Few Patterns
@@ -29,4 +33,97 @@ Enjoy the pazzas!
 享受披萨!
 
 Ralph E. Johnson
+
 Champaign, Illinois
+
+## Preface
+
+An object-oriented programming language enables a programmer to construct reusable program components. With such components, other programmers can quickly build large new programs and program fragments. In the ideal case, the programmers do not modify any existing code but simply glue together compontents and add a few new ones. This reusability of components, however, does not come for free. It requires a well-designed object-oriented language and a strict discipline of programming.
+
+Java is a such a language, and this book introduces its object-oriented elements: (abstract) classes, fields, methods, inheritance, and interfaces. This small core language has a simple semantic model, which greatly helps programmers to express themselves. In addition, Java implementations automatically manage the memory a program uses, which frees programmers from thinking about machine details and encourages them to focus on design.
+
+The book's second goal is to introduce the reader to design patterns, the key elements of a programming discipline that enhances code reuse. Design patterns help programmers organize their object-oriented components so that they properly implement the desired computational process. More importantly still, design patterns help communicate important properties about a program component. If a component is an instance of an explicitly formulated pattern and documented as such, other programmers can easily understand its structure and reuse it in their own programs, even without access to the component's source.
+
+### THE INTENDED AUDIENCE
+
+The book is primarily intended for people-practicing programmers, instructors and students alike-who wish to study the essential elements of object-oriented programming and the idea of design patterns. Readers must have some basic programming experience. They will benefit most from the book if they understand the principles of functional design, that is, the design of program fragments based on their input-output behavior. An introductory computer science course that uses Scheme (or ML) is the best way to get familiar with this style of design, but it is not required.
+
+### WHAT THIS BOOK IS NOT ABOUT
+
+
+## EXPERIMENTING WITH JAVA
+
+Here are some hints on how to experiment with Java:
+
+1、Create a file that contains a complete hierarchy of classes.
+
+2、To each class whose name does not end with a superscript D, V, I, or M, add a toString method according to these rules:
+
+    a) if the class does not contain any fields, use
+    ```
+    public String toString() {
+        return "new " + getClass().getName() + "()";
+    }
+    ```
+
+    b) if the class has one field, say x, use
+    ```
+    public String toString() {
+        return "new " + getClass().getName() + "(" + x + ")";
+    }
+    ```
+
+    c) if the class two fields, say x and y, use
+    ```
+    public String toString() {
+        return "new " + getClass().getName() + "(" + x + "," + y + ")";
+    }
+    ```
+
+3、Add the following class at the bottom of the file:
+```
+class Main {
+    public static void main (String args[]) {
+        DataType_or_Interface y = new _ _ _ _ _;
+        System.out.println( ...... );
+    }
+}
+```
+
+With ***DataType_or_Interface y = new _ _ _ _ _***, create the object y with which you wish to experiment. Them replace ...... with the example with the ***distanceTo0*** method of ***ManhattanPt*** as defined in chapter 2, add the following definition to the end of your file:
+```
+class Main {
+    public static void main (String args[]) {
+        PointD y = new ManhattanPt(2,8);
+        System.out.println( y.distanceTo0() );
+    }
+}
+```
+
+If you wish to experiment with a sequence of expressions that modify y, as in chapter 10, e.g..
+```
+y._ _ _ _ _ _ ;
+y._ _ _ _ _ _ ;
+y._ _ _ _ _ _
+```
+replace ...... with
+```
+y._ _ _ _ _ _ + "\n " +
+y._ _ _ _ _ _ + "\n " +
+y._ _ _ _ _ _
+```
+For example, if you wish to experiment with the methods of ***PiemanM*** as defined in chapter 10, add the following definition to the end of your file:
+```
+class Main {
+    public static void main (String args[]) {
+        PiemanI y = new PiemanM();
+        System.out.println (
+            y.addTop(new Anchovy()) + "\n" +
+            y.addTop(new Anchovy()) + "\n" +
+            y.substTop(new Tuna(), new Anchovy())
+        );
+    }
+}
+```
+
+4、Finally, compile the file and interpret the class Main.
