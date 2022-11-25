@@ -4,6 +4,23 @@
     - [THE INTENDED AUDIENCE](#the-intended-audience)
     - [WHAT THIS BOOK IS NOT ABOUT](#what-this-book-is-not-about)
   - [EXPERIMENTING WITH JAVA](#experimenting-with-java)
+  - [1. Modern Toys](#1-modern-toys)
+  - [Is 5 an integer?](#is-5-an-integer)
+  - [Is this a number: -23?](#is-this-a-number--23)
+  - [Is this an integer: 5.32?](#is-this-an-integer-532)
+  - [What type of number is 5?](#what-type-of-number-is-5)
+  - [Quick, think of another integer!](#quick-think-of-another-integer)
+  - [What type of value is true?](#what-type-of-value-is-true)
+  - [What type of value is false?](#what-type-of-value-is-false)
+  - [Can you think of another **boolean**?](#can-you-think-of-another-boolean)
+  - [What is **int**?](#what-is-int)
+  - [What is boolean?](#what-is-boolean)
+  - [What is a type?](#what-is-a-type)
+  - [What is a type?](#what-is-a-type-1)
+  - [Can we make new types?](#can-we-make-new-types)
+  - [*D This superscript is a reminder that class is a datatype. Lower superscripts when you enter this kind of definition in a file: SeasoningD*](#d-this-superscript-is-a-reminder-that-class-is-a-datatype-lower-superscripts-when-you-enter-this-kind-of-definition-in-a-file-seasoningd)
+  - [Yes. We say *SeasoningD* is a datatype, and Salt and Pepper are its variants.](#yes-we-say-seasoningd-is-a-datatype-and-salt-and-pepper-are-its-variants)
+  - [Yes, in a way. Now, is *new Salt()* is a *SeasoningD*?](#yes-in-a-way-now-is-new-salt-is-a-seasoningd)
 
 
 # A Little Java, A Few Patterns
@@ -84,7 +101,7 @@ Here are some hints on how to experiment with Java:
 ```
 class Main {
     public static void main (String args[]) {
-        DataType_or_Interface y = new _ _ _ _ _;
+        DataType_or_Interface y = new _ _ _ _ _ _;
         System.out.println( ...... );
     }
 }
@@ -127,3 +144,119 @@ class Main {
 ```
 
 4、Finally, compile the file and interpret the class Main.
+
+## 1. Modern Toys
+
+---
+
+Is 5 an integer?
+---
+Yes, it is.
+
+---
+
+Is this a number: -23?
+---
+Yes, but we don't use negative untegers.
+
+---
+
+Is this an integer: 5.32?
+---
+No, and we don't use this type of number.
+
+---
+
+What type of number is 5?
+---
+**int**, In Java. **int** stands for "integer".
+
+---
+
+Quick, think of another integer!
+---
+How about 19?
+
+---
+
+What type of value is true?
+---
+**boolean**
+
+---
+
+What type of value is false?
+---
+**boolean**
+
+---
+
+Can you think of another **boolean**?
+---
+No, that's all there is to **boolean**.
+
+---
+
+What is **int**?
+---
+A type.
+
+---
+
+What is boolean?
+---
+Another type.
+
+---
+
+What is a type?
+---
+A type is a name for a collection of values.
+
+---
+
+What is a type?
+---
+Sometimes we use it as if it were the collection.
+
+---
+
+Can we make new types?
+---
+We don't know how yet.
+
+---
+
+Draw the picture that characterizes the essential relationships among the following classes.
+
+```
+abstract class SeasoningD {}
+```
+
+```
+class Salt extends SeasoningD {}
+```
+
+```
+class Pepper extends SeasoningD {}
+```
+*D This superscript is a reminder that class is a datatype. Lower superscripts when you enter this kind of definition in a file: SeasoningD*
+---
+Is this it?
+
+---
+
+Yes. We say *SeasoningD* is a datatype, and Salt and Pepper are its variants.
+---
+Okay. But aren't all three classes introducing new types?
+
+---
+
+Yes, in a way. Now, is *new Salt()* is a *SeasoningD*?
+---
+Yes, it is, because **new Salt()** creates an instance of **Salt**, and every instance of **Salt** is also a **SeasoningD**.
+
+---
+
+
+
