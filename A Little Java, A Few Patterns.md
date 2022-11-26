@@ -513,7 +513,6 @@ Okay.
 
 When specifying a collection of data, use abstract classes for datatypes and extended classes for variants.
 
-
 ---
 What do the following define?
 ```
@@ -547,55 +546,107 @@ It looks like an instance of **Base**, which means it is also a **Layer** and an
 
 ---
 And what is **new Base(new Salt())**?
+
 ::
 It also looks like an instance of **Base**, But how come both **new Base(new Zero())** and **new Base(new Salt())** are instances of the same variant?
 
 ---
 They are, bacause everything created with **new** is an **Object**, the class of all objects.
+
 ::
 Hence, we can use both **new Zero()** and **new Salt()** for the construction of a **Base**. which requires an **Object**.
 
 ---
 Is anything else an **Object**?
+
 ::
 We said that only things created with **new** are **Objects**
 ***Arrays and strings are objects, too. We don't discuss them.***
 
 ---
 Correct. Is this a **Layer** : **new Base(5)**?
+
 ::
 **5** is not created with **new**, so this must be nonsense.
 
 ---
 Is this a **Layer** : **new Base(false)**?
+
 ::
 **false** is not created with **new**, so this must be nonsense, too.
 
 ---
 Correct again! How about this **Layer** : **new Base(new Integer(5))**?
+
 ::
 This must mean that **Integer** creates an objecd from an **int**.
 
 ---
 Guess how we create a **Layer** from **false**??
+
 ::
 Easy now: **new Base(new Boolean(false))**/
 
 ---
 Is it confusing that we need to connect **int** with **Integer** and **boolean** with **Boolean**?
+
 ::
 Too much coffee does that.
 
 ---
 Ready for more?
+
 ::
 Can't wait.
 
 ---
 
 ## Methods to Our Madness
+---
+Remember points?
+```
+abstract class Point {}
+```
+```
+class CartesianPt extends Point {
+    int x;
+    int y;
+    CartesianPt(int _x, int _y) {
+        x = _x;
+        y = _y;
+    }
+}
+```
+```
+class ManhattanPt extends Point {
+    int x;
+    int y;
+    ManhattanPt(int _x, int _y) {
+        x = _x;
+        y = _y;
+    }
+}
+```
+::
+Sure, we just talked about them. But what are these labeled ovals about?
 
+---
+We will find out soon. Did you notice the big white space on the right?
 
+::
+It must be for drawing the picture of the classes.
+
+---
+How far is **new manhattanPt(3,4)** from the Empire State Building?
+
+::
+If the Empire State Building is the origin, we have to walk seven blocks: **3** over, **4** up.
+
+---
+And how far is **new CartesianPt(3,4)** from the origin?
+
+::
+**5**, which is $\sqrt{3^2+4^2}$.
 
 ## What's New?
 
