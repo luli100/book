@@ -5,22 +5,8 @@
     - [WHAT THIS BOOK IS NOT ABOUT](#what-this-book-is-not-about)
   - [EXPERIMENTING WITH JAVA](#experimenting-with-java)
   - [1. Modern Toys](#1-modern-toys)
-  - [Is 5 an integer?](#is-5-an-integer)
-  - [Is this a number: -23?](#is-this-a-number--23)
-  - [Is this an integer: 5.32?](#is-this-an-integer-532)
-  - [What type of number is 5?](#what-type-of-number-is-5)
-  - [Quick, think of another integer!](#quick-think-of-another-integer)
-  - [What type of value is true?](#what-type-of-value-is-true)
-  - [What type of value is false?](#what-type-of-value-is-false)
-  - [Can you think of another **boolean**?](#can-you-think-of-another-boolean)
-  - [What is **int**?](#what-is-int)
-  - [What is boolean?](#what-is-boolean)
-  - [What is a type?](#what-is-a-type)
-  - [What is a type?](#what-is-a-type-1)
-  - [Can we make new types?](#can-we-make-new-types)
-  - [*D This superscript is a reminder that class is a datatype. Lower superscripts when you enter this kind of definition in a file: SeasoningD*](#d-this-superscript-is-a-reminder-that-class-is-a-datatype-lower-superscripts-when-you-enter-this-kind-of-definition-in-a-file-seasoningd)
-  - [Yes. We say *SeasoningD* is a datatype, and Salt and Pepper are its variants.](#yes-we-say-seasoningd-is-a-datatype-and-salt-and-pepper-are-its-variants)
-  - [Yes, in a way. Now, is *new Salt()* is a *SeasoningD*?](#yes-in-a-way-now-is-new-salt-is-a-seasoningd)
+  - [Methods to Our Madness](#methods-to-our-madness)
+  - [What's New?](#whats-new)
 
 
 # A Little Java, A Few Patterns
@@ -150,83 +136,86 @@ class Main {
 ---
 
 Is 5 an integer?
----
+
+::
 Yes, it is.
 
 ---
 
 Is this a number: -23?
----
+
+::
 Yes, but we don't use negative untegers.
 
 ---
 
 Is this an integer: 5.32?
----
+
+::
 No, and we don't use this type of number.
 
 ---
-
 What type of number is 5?
----
+
+::
 **int**, In Java. **int** stands for "integer".
 
 ---
-
 Quick, think of another integer!
----
+
+::
 How about 19?
 
 ---
-
 What type of value is true?
----
+
+::
 **boolean**
 
 ---
-
 What type of value is false?
----
+
+::
 **boolean**
 
 ---
-
 Can you think of another **boolean**?
----
+
+::
 No, that's all there is to **boolean**.
 
 ---
-
 What is **int**?
----
+
+::
 A type.
 
 ---
-
 What is boolean?
----
+
+::
 Another type.
 
 ---
 
 What is a type?
----
+
+::
 A type is a name for a collection of values.
 
 ---
-
 What is a type?
----
+
+::
 Sometimes we use it as if it were the collection.
 
 ---
-
 Can we make new types?
----
+
+::
 We don't know how yet.
 
 ---
-
 Draw the picture that characterizes the essential relationships among the following classes.
 
 ```
@@ -241,22 +230,275 @@ class Salt extends SeasoningD {}
 class Pepper extends SeasoningD {}
 ```
 *D This superscript is a reminder that class is a datatype. Lower superscripts when you enter this kind of definition in a file: SeasoningD*
----
+
+::
 Is this it?
 
 ---
-
 Yes. We say *SeasoningD* is a datatype, and Salt and Pepper are its variants.
----
+
+::
 Okay. But aren't all three classes introducing new types?
 
 ---
-
 Yes, in a way. Now, is *new Salt()* is a *SeasoningD*?
----
+
+::
 Yes, it is, because **new Salt()** creates an instance of **Salt**, and every instance of **Salt** is also a **SeasoningD**.
 
 ---
+And *new Pepper()*?
 
+::
+It's also a **SeasoningD**, because **new Pepper()** creates an instance of **Pepper**, and every instance of **Pepper** is also a **SeasoningD**.
+
+---
+What are *abstract*, *class*, and *extends*?
+
+::
+Easy: **abstract class** introduces a datatype, **class** introduces a variant, and **extends** connects a variant to a datatype.
+
+---
+Is there any other *SeasoningD*?
+
+::
+No, because only **Salt** and **Pepper** extend **SeasoningD**.
+
+---
+Correct, *Salt* and *Pepper* are the only variants of the datatype *SeasoningD*. Have we seen a datatype like *SeasoningD* before?
+
+::
+No, but **boolean** is a type that also has just two values.
+
+---
+Let's define more **SeasoningD**.
+```
+class Thyme extends SeasoningD {}
+```
+
+::
+We can have lots of **SeasoningD**s.
+```
+class Sage extends SeasoningD {}
+```
+
+---
+And then there were four.
+
+::
+Yes
+
+---
+What is a Cartesian point?
+
+::
+It is basically a pair of numbers.
+
+---
+What is a point in Manhattan?
+
+::
+An intersection where two city streets meet.
+
+---
+How do **CartesianPt** and **ManhattanPt** differ from **Salt** and **Pepper**?
+```
+abstract class Point {}
+```
+```
+class CartesianPt extends Point {
+    int x;
+    int y;
+    CartesianPt(int _x, int _y) {
+        x = _x;
+        y = _y;
+        //------------------------
+    }
+}
+```
+```
+class ManhattanPt extends Point {
+    int x;
+    int y;
+    ManhattanPt(int _x, int _y) {
+        x = _x;
+        y = _y;
+        //------------------------
+    }
+}
+```
+::
+Each of them contains three things between { and }. The x and the y are obviously the coordinates of the points. But what is the remaining thing above the bold bar?
+
+---
+The underlined occurrences of **CartesianPt** and **ManhattanPt** introduce the constructors of the respective variants.
+
+::
+How do we use these constructors?
+
+---
+A constructor is used with **new** to create new instances of a **class**.
+
+::
+Obvious!
+
+---
+When we create a **CartesianPt** like this: **new CartesianPt(2,3)**, we use the constructor in the definition of **CartesianPt**.
+
+::
+So now we have created a **CartesianPt** whose x field is **2** and whose y field is **3**. And because **CartesianPt extends Point**, it is also a **Point**.
+
+---
+Correct. Is this a **ManhattanPt**:**new ManhattanPt(2,3)**?
+
+::
+Yes, and its x field is **2** and its y field is **3**.
+
+---
+Isn't all this obvious?
+
+::
+Mostly, but that means we have used constructors before without defining them. How does that work?
+
+---
+When a **class** does not contain any fields, as in **Salt** and **Pepper**, a constructor is included by default.
+
+::
+And that's the constructor we used before, right?
+
+---
+And that's correct. Default constructors never consume values, and, when used with **new**, always create objects without fields.
+
+::
+Good. But what is **new Point()**?
+
+---
+An **abstract** class is by definition incomplete, so **new** cannot create an instance from it.
+
+::
+That makes sense. Let's move on.
+
+---
+Do the following classes define another datatype with variants?
+```
+abstract class Num {}
+```
+```
+class Zero extends Num {}
+```
+```
+class OneMoreThan extends Num {
+    Num predecessor;
+    OneMoreThan(Num _p) {
+        predecessor = _p;
+    }
+}
+```
+Draw the picture, too.
+
+::
+Yes, they define a datatype and two variants.
+
+---
+Is this a **Nun**: **new Zero()**?
+
+::
+Obviously, just like **new Salt()** is a **Seasoning**.
+
+---
+Is this a **Num** : **new OneMoreThan(new Zero())**?
+
+::
+Yes, because **OneMoreThan** constructs a **Num** from a **Num**, and every instance of **OneMoreThan** is also a **Num**.
+
+---
+How dows OneMoreThan do that?
+
+::
+We give it **new Zero()**, which is a **Num**, and it constructs a new **Num**.
+
+---
+And what does it mean to construct this new instance?
+
+::
+This new instance of **OneMoreThan** is a value with a single field, which is called *predecessor*. In our example, the field is **new Zero()**.
+
+---
+Does *predecessor* always stand for an instance of **Zero**?
+
+::
+No, its type says that it stands for a **Num**, which, at the moment, may be either a **Zero** or a **OneMoreThan**.
+
+---
+What is **new OneMoreThan(new OneMoreThan(new Zero()))**?
+
+::
+A **Num**, because **OneMoreThan** constructs an instance from a **Num** and we agreed that **new OneMoreThan(new Zero())** is a **Num**.
+
+---
+What is **new OneMoreThan(0)**?
+
+::
+That is nonsense, because **0** is not a **Num**.
+
+---
+Is **new Zero()** the same as **0**?
+
+::
+No, **0** is similar to, but not the same as, **new Zero()**.
+
+---
+Is **new OneMoreThan(new Zero())** like **1**?
+
+::
+**1** is similar to, but not the same as, **new OneMoreThan(new Zero())**.
+
+---
+And what is **new OneMoreThan(new OneMoreThan(new OneMoreThan(new OneMoreThan(new Zero()))))** similar to?
+
+::
+**4**
+
+---
+Are there more **Num**s than **boolean**s?
+
+::
+Lots.
+
+---
+Are there more **Num**s than **int**s?
+
+::
+No.
+
+---
+What is the difference between **new Zero()** and **0**?
+
+::
+Easy: **new Zero()** is an instance of **Zero** and, by implication, is a **Num**, whereas **0** is an **int**. This makes it difficult to compare them, but we can compare them in our minds.
+
+---
+Correct. In general, if two things are instances of two different basic types, they cannot be the same.
+
+::
+So are types just names for different collections with no common instances?
+
+---
+The primitive types (**int** and **boolean**) are distinct; others may overlap.
+
+::
+What are non-basic types?
+
+---
+
+
+## Methods to Our Madness
+
+
+
+## What's New?
+
+---
+Do you like to eat pizza?
 
 
