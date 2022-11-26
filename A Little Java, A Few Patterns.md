@@ -313,7 +313,6 @@ class CartesianPt extends Point {
     CartesianPt(int _x, int _y) {
         x = _x;
         y = _y;
-        //------------------------
     }
 }
 ```
@@ -324,7 +323,6 @@ class ManhattanPt extends Point {
     ManhattanPt(int _x, int _y) {
         x = _x;
         y = _y;
-        //------------------------
     }
 }
 ```
@@ -603,6 +601,8 @@ Can't wait.
 ---
 
 ## Methods to Our Madness
+我们的疯狂方法
+
 ---
 Remember points?
 ```java
@@ -649,9 +649,278 @@ And how far is **new CartesianPt(3,4)** from the origin?
 ::
 **5**, which is $\sqrt{3^2+4^2}$.
 
+---
+Write the methods distanceToO using {,},(,). ⁚.**return. int. + $\lfloor\sqrt{.}\rfloor$, and •, which determine how far a points is from the origin.
+
+::
+Of course, you can't write these methods, yew. Okay, you deserve something sweet for enduring this last question.
+
+---
+What do the methods produce?
+
+::
+**int**s, which represent the distances to the origin.
+
+---
+Here they are.
+
+**Point**
+```java
+abstract int distanceToO();
+```
+**CartesianPt**
+```java
+int distanceToO(){
+    return (int)Math.sqrt(x*x,y*y);
+}
+```
+**ManhattanPt**
+```java
+int distanceToO(){
+    return x + y;
+}
+```
+To what do Point, CartesianPt, and ManhattanPt in the boxes refer?
+
+::
+They correspond to the unexplained labels in the definition of the datatype and its variants.
+
+---
+The labels remind us that we need to insert these methods into **Point**, **CartesianPt**, and **ManhattanPt**.
+
+::
+That's simple enough.
+
+---
+How many times have we defined the method *distanceToO*?
+
+::
+Three times, but the first one differs from the other two. It is labeled **abstract**, while the others are not proceded by a special word.
+
+---
+Do **abstract** methods belong to the **abstract class**?
+
+::
+Yes, they always to.
+
+---
+An **abstract** method in an **abstract class** introduce an obligation, which says that all concrete classes that extend this abstract $class^{1}$ must contain a matching method definition.
+
+*$^{1}$ Directly or indirectly. That is, the concrete class may extend an abstract class that extends the abstract class with the obligation and so on*.
+
+::
+Okay.
+
+---
+What is the value of **new ManhattanPt(3,4).distanceToO()**?
+
+::
+7.
+
+---
+How do we arrive at that value?
+
+::
+We determine the value of ${x + y}$, with ${x}$replaced by 3 and ${y}$  replaced by 4.
+
+---
+What is the value of **new CartesianPt(3,4).distanceToO()**?
+
+::
+**5**, because this is the value of $\sqrt{x^{2} + y^{2}}$ with ${x}$ replaced by **3** and ${y}$ replaced by **4**.
+
+---
+What does $\lfloor\sqrt{x}\rfloor$ compute?
+
+::
+The largest **int** that does not exceed the square root of ${x}$.
+
+---
+Time for a short break?
+
+::
+An apple a day keeps the dentist away. A cup of coffee does not.
+
+---
+Here is another datatype with its variants. What is different about them?
+```java
+abstract class Shish {}
+```
+```java
+class Skewer extends Shish {}
+```
+```java
+class Onion extends Shish {
+    Shish s;
+    Onion(Shish _s){
+        s = _s;
+    }
+}
+```
+```java
+class Lamb extends Shish {
+    Shish s;
+    Lamb(Shish _s){
+        s = _s;
+    }
+}
+```
+```java
+class Tomato extends Shish {
+    Shish s
+    Tomato(Shish _s){
+        s = _s;
+    }
+}
+```
+::
+It is like **Num** but has more variants.
+
+---
+Did you notice the big space on the right?
+
+::
+Yes, isn't it for drawing the picture of the classes?
+
+---
+Construct a Shish.
+
+::
+How about **new Skewer()**?
+
+---
+Yes, every Skewer is also a Shish. How about another one?
+
+::
+Here's one: **new Onion(new Skewer())**.
+
+---
+And a third?
+
+::
+Here's one more: **new Onion(new Lamb(new Onion(new Skewer())))**.
+
+---
+Are there only **Onion**s on this **Shish**: **new Skewer()**?
+
+::
+true, because there is neither **Lamb** nor **Tomato** on **new Skewer()**.
+
+---
+
+
+
 ## What's New?
+**New** 是什么？
 
 ---
 Do you like to eat pizza?
+```java
+abstract class Pizza {}
+```
+```java
+class Crust extends Pizaa {}
+```
+```java
+class Cheese extends Pizza {
+    Pizza p;
+    Cheese(Pizza _p) {
+        p = _p;
+    }
+}
+```
+```java
+class Olive extends Pizza {
+    Pizza p;
+    Olive(Pizza _p){
+        p = _p;
+    }
+}
+```
+```java
+class Anchovy extends Pizza {
+    Pizza p;
+    Anchovy(Pizza _p)
+    {
+        p = _p;
+    }
+} 
+```
+::
+Looks like good topping. Let's add Sausage.
+```java
+class Sausage extends Pizza {
+    Pizza p;
+    Sausage(Pizza _p){
+        p = _p;
+    }
+}
+```
+
+---
+Here is our favorite pizza: **new Anchovy(new Olive(new Anchovy(new Anchovy(new Cheese(new Crust())))))**.
+
+::
+This looks too salty.
+
+---
+Let's remove them. What is the value of **new Anchovy(new Olive(new Anchovy(new Anchovy(new Cheese(new Crust()))))).removceAnchovy()**.
+
+::
+It should be a cheese and olive pizza, like this: **new Olive(new Cheese(new Crust()))**.
+
+---
+What is the value of **new Sausage(new Olive(new Anchovy(new Sausage(new Cheese(new Crust()))))).removceAnchovy()**.
+
+::
+It should be a cheese, sausage, and olive pizza, like this: **new Sausage(new Olive(new Sausage(new Cheese(new Crust()))))**.
+
+---
+Does removceAnchovy belong to the datatype **Pizza** and its variants?
+
+::
+Yes, and it produces theme, too.
+
+---
+Define the methods that belong to the five variants. Here is a start.
+```java
+abstract Pizza removceAnchovy();
+```
+```java
+Pizza removceAnchovy() {
+    return new Crust();
+}
+```
+
+::
+We didn't expect you to know this one.
+
+---
+Define the two methods that belong to **Olive** and **Sausage**. We've eaten the cheese already.
+```java
+Pizza removceAnchovy(){
+    return new Cheese(p.removceAnchovy());
+}
+```
+::
+The **Olive** and **Sausage** methods are similar to the **Cheese** method.
+```java
+Pizza removceAnchovy(){
+    return new Olive(p.removceAnchovy());
+}
+```java
+Pizza removceAnchovy(){
+    return new Sausage(p.removceAnchovy());
+}
+```
+
+---
+Explain why we use **new Cheese ...**, **new Olive ...**, and **new Sausage ...**, when we define these methods.
+
+::
+The cheese, the olives, and the sausages on the pizzas must be put back on top of the pizza that p.removceAnchovy() produces.
+
+---
+
 
 
