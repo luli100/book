@@ -490,7 +490,108 @@ The primitive types (**int** and **boolean**) are distinct; others may overlap.
 What are non-basic types?
 
 ---
+Class definitions do not introduce primitive types, For example, a value like **new Zero()** is not only an instance of **Zero**, but is also a **Num**, which is extended by **Zero**. Indeed, it is of any type that **Num** extends, too.
 
+::
+And what is that?
+
+---
+Every class that does not explicitly extend another class implicitly extends the class **Object**.
+
+::
+This must mean that everything is an **Object**.
+
+---
+Almost. We will soon see what that means.
+
+::
+Okay.
+
+---
+
+***The First Bit of Advice***
+
+When specifying a collection of data, use abstract classes for datatypes and extended classes for variants.
+
+
+---
+What do the following define?
+```
+abstract class Layer {}
+```
+```
+class Base extends Layer {
+    Object o;
+    Base(Object _o) {
+        o = _o;
+    }
+}
+```
+```
+class Slice extends Layer {
+    Layer l;
+    Slice(Layer _l)
+    {
+        l = _l;
+    }
+}
+```
+::
+They define a new datatype and its two variants. The first variant contains a field of type **Object**.
+
+---
+What is **new Base(new Zero())**?
+
+::
+It looks like an instance of **Base**, which means it is also a **Layer** and an **Object**.
+
+---
+And what is **new Base(new Salt())**?
+::
+It also looks like an instance of **Base**, But how come both **new Base(new Zero())** and **new Base(new Salt())** are instances of the same variant?
+
+---
+They are, bacause everything created with **new** is an **Object**, the class of all objects.
+::
+Hence, we can use both **new Zero()** and **new Salt()** for the construction of a **Base**. which requires an **Object**.
+
+---
+Is anything else an **Object**?
+::
+We said that only things created with **new** are **Objects**
+***Arrays and strings are objects, too. We don't discuss them.***
+
+---
+Correct. Is this a **Layer** : **new Base(5)**?
+::
+**5** is not created with **new**, so this must be nonsense.
+
+---
+Is this a **Layer** : **new Base(false)**?
+::
+**false** is not created with **new**, so this must be nonsense, too.
+
+---
+Correct again! How about this **Layer** : **new Base(new Integer(5))**?
+::
+This must mean that **Integer** creates an objecd from an **int**.
+
+---
+Guess how we create a **Layer** from **false**??
+::
+Easy now: **new Base(new Boolean(false))**/
+
+---
+Is it confusing that we need to connect **int** with **Integer** and **boolean** with **Boolean**?
+::
+Too much coffee does that.
+
+---
+Ready for more?
+::
+Can't wait.
+
+---
 
 ## Methods to Our Madness
 
