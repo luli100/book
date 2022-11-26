@@ -58,33 +58,36 @@ The book is primarily intended for people-practicing programmers, instructors an
 
 Here are some hints on how to experiment with Java:
 
-1、Create a file that contains a complete hierarchy of classes.
+1. Create a file that contains a complete hierarchy of classes.
 
-2、To each class whose name does not end with a superscript D, V, I, or M, add a toString method according to these rules:
+2. To each class whose name does not end with a superscript D, V, I, or M, add a toString method according to these rules:
 
-    a) if the class does not contain any fields, use
-    ```
+   a) if the class does not contain any fields, use
+    
+    ```java
     public String toString() {
         return "new " + getClass().getName() + "()";
     }
     ```
 
     b) if the class has one field, say x, use
-    ```
+
+    ```java
     public String toString() {
         return "new " + getClass().getName() + "(" + x + ")";
     }
     ```
 
     c) if the class two fields, say x and y, use
-    ```
+    
+    ```java
     public String toString() {
         return "new " + getClass().getName() + "(" + x + "," + y + ")";
     }
     ```
 
-3、Add the following class at the bottom of the file:
-```
+3. Add the following class at the bottom of the file:
+```java
 class Main {
     public static void main (String args[]) {
         DataType_or_Interface y = new _ _ _ _ _ _;
@@ -94,7 +97,7 @@ class Main {
 ```
 
 With ***DataType_or_Interface y = new _ _ _ _ _***, create the object y with which you wish to experiment. Them replace ...... with the example with the ***distanceTo0*** method of ***ManhattanPt*** as defined in chapter 2, add the following definition to the end of your file:
-```
+```java
 class Main {
     public static void main (String args[]) {
         PointD y = new ManhattanPt(2,8);
@@ -116,7 +119,7 @@ y._ _ _ _ _ _ + "\n " +
 y._ _ _ _ _ _
 ```
 For example, if you wish to experiment with the methods of ***PiemanM*** as defined in chapter 10, add the following definition to the end of your file:
-```
+```java
 class Main {
     public static void main (String args[]) {
         PiemanI y = new PiemanM();
@@ -129,7 +132,7 @@ class Main {
 }
 ```
 
-4、Finally, compile the file and interpret the class Main.
+4. Finally, compile the file and interpret the class Main.
 
 ## 1. Modern Toys
 
@@ -218,39 +221,37 @@ We don't know how yet.
 ---
 Draw the picture that characterizes the essential relationships among the following classes.
 
-```
-abstract class SeasoningD {}
-```
-
-```
-class Salt extends SeasoningD {}
+```java
+abstract class Seasoning {}
 ```
 
+```java
+class Salt extends Seasoning {}
 ```
-class Pepper extends SeasoningD {}
-```
-*D This superscript is a reminder that class is a datatype. Lower superscripts when you enter this kind of definition in a file: SeasoningD*
 
+```java
+class Pepper extends Seasoning {}
+```
 ::
 Is this it?
 
 ---
-Yes. We say *SeasoningD* is a datatype, and Salt and Pepper are its variants.
+Yes. We say *Seasoning* is a datatype, and Salt and Pepper are its variants.
 
 ::
 Okay. But aren't all three classes introducing new types?
 
 ---
-Yes, in a way. Now, is *new Salt()* is a *SeasoningD*?
+Yes, in a way. Now, is *new Salt()* is a *Seasoning*?
 
 ::
-Yes, it is, because **new Salt()** creates an instance of **Salt**, and every instance of **Salt** is also a **SeasoningD**.
+Yes, it is, because **new Salt()** creates an instance of **Salt**, and every instance of **Salt** is also a **Seasoning**.
 
 ---
 And *new Pepper()*?
 
 ::
-It's also a **SeasoningD**, because **new Pepper()** creates an instance of **Pepper**, and every instance of **Pepper** is also a **SeasoningD**.
+It's also a **Seasoning**, because **new Pepper()** creates an instance of **Pepper**, and every instance of **Pepper** is also a **Seasoning**.
 
 ---
 What are *abstract*, *class*, and *extends*?
@@ -259,27 +260,27 @@ What are *abstract*, *class*, and *extends*?
 Easy: **abstract class** introduces a datatype, **class** introduces a variant, and **extends** connects a variant to a datatype.
 
 ---
-Is there any other *SeasoningD*?
+Is there any other *Seasoning*?
 
 ::
-No, because only **Salt** and **Pepper** extend **SeasoningD**.
+No, because only **Salt** and **Pepper** extend **Seasoning**.
 
 ---
-Correct, *Salt* and *Pepper* are the only variants of the datatype *SeasoningD*. Have we seen a datatype like *SeasoningD* before?
+Correct, *Salt* and *Pepper* are the only variants of the datatype *Seasoning*. Have we seen a datatype like *Seasoning* before?
 
 ::
 No, but **boolean** is a type that also has just two values.
 
 ---
-Let's define more **SeasoningD**.
-```
-class Thyme extends SeasoningD {}
+Let's define more **Seasoning**.
+```java
+class Thyme extends Seasoning {}
 ```
 
 ::
-We can have lots of **SeasoningD**s.
-```
-class Sage extends SeasoningD {}
+We can have lots of **Seasoning**s.
+```java
+class Sage extends Seasoning {}
 ```
 
 ---
@@ -302,10 +303,10 @@ An intersection where two city streets meet.
 
 ---
 How do **CartesianPt** and **ManhattanPt** differ from **Salt** and **Pepper**?
-```
+```java
 abstract class Point {}
 ```
-```
+```java
 class CartesianPt extends Point {
     int x;
     int y;
@@ -316,7 +317,7 @@ class CartesianPt extends Point {
     }
 }
 ```
-```
+```java
 class ManhattanPt extends Point {
     int x;
     int y;
@@ -380,13 +381,13 @@ That makes sense. Let's move on.
 
 ---
 Do the following classes define another datatype with variants?
-```
+```java
 abstract class Num {}
 ```
 ```
 class Zero extends Num {}
 ```
-```
+```java
 class OneMoreThan extends Num {
     Num predecessor;
     OneMoreThan(Num _p) {
@@ -515,10 +516,10 @@ When specifying a collection of data, use abstract classes for datatypes and ext
 
 ---
 What do the following define?
-```
+```java
 abstract class Layer {}
 ```
-```
+```java
 class Base extends Layer {
     Object o;
     Base(Object _o) {
@@ -526,7 +527,7 @@ class Base extends Layer {
     }
 }
 ```
-```
+```java
 class Slice extends Layer {
     Layer l;
     Slice(Layer _l)
@@ -604,10 +605,10 @@ Can't wait.
 ## Methods to Our Madness
 ---
 Remember points?
-```
+```java
 abstract class Point {}
 ```
-```
+```java
 class CartesianPt extends Point {
     int x;
     int y;
@@ -617,7 +618,7 @@ class CartesianPt extends Point {
     }
 }
 ```
-```
+```java
 class ManhattanPt extends Point {
     int x;
     int y;
